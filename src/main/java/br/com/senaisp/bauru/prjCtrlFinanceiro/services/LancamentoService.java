@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.senaisp.bauru.prjCtrlFinanceiro.models.Categoria;
 import br.com.senaisp.bauru.prjCtrlFinanceiro.models.Lancamento;
-import br.com.senaisp.bauru.prjCtrlFinanceiro.repositories.CategoriaRepository;
 import br.com.senaisp.bauru.prjCtrlFinanceiro.repositories.LancamentoRepository;
 
 @Service
@@ -35,8 +33,11 @@ public class LancamentoService {
             return null;
         }
         lancamentoBanco.setDescricao(lancamento.getDescricao());
-        lancamentoBanco.setTipo(lancamento.getTipo());
-        lancamentoBanco.setAtiva(lancamento.getAtiva());
+        lancamentoBanco.setValor(lancamento.getValor());
+        lancamentoBanco.setCategoria(lancamento.getCategoria());
+        lancamentoBanco.setDataLancamento(lancamento.getDataLancamento());
+        lancamentoBanco.setObservacao(lancamento.getObservacao());
+        lancamentoBanco.setUsuario(lancamento.getUsuario());
         return repository.save(lancamentoBanco);
     }
 
